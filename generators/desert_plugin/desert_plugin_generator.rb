@@ -43,25 +43,18 @@ module Desert #:nodoc:
 
       module Create
         def map_route_from_plugin
-          logger.route "adding map.routes_from_plugin(:#{file_name}) to top of routes.rb"
-          sentinel = 'ActionController::Routing::Routes.draw do |map|'
-          gsub_file('config/routes.rb', /(#{Regexp.escape(sentinel)})/mi) do |match|
-            "#{match}\n  map.routes_from_plugin(:#{file_name})\n"
-          end
         end
       end
 
       module Destroy
         def map_route_from_plugin
-          look_for = "\n  map.routes_from_plugin(:#{file_name})\n"
-          logger.route "removing map.routes_from_plugin(:#{file_name}) from routes.rb"
-          gsub_file 'config/routes.rb', /(#{Regexp.escape(look_for)})/mi, ''
+
         end
       end
 
       module List
         def map_route_from_plugin
-          logger.route "adding map.routes_from_plugin(:#{file_name}) to top of routes.rb"
+
         end
       end
     end

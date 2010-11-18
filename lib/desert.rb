@@ -1,9 +1,11 @@
+dir = File.dirname(__FILE__)
 require "active_support"
 require "active_record"
 require "action_controller"
+require File.join(dir, 'action_controller', 'routing', 'route_set')
 require "action_mailer"
 
-dir = File.dirname(__FILE__)
+
 require "#{dir}/desert/supported_rails_versions"
 require "#{dir}/desert/plugin"
 require "#{dir}/desert/manager"
